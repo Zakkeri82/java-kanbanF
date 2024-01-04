@@ -1,11 +1,11 @@
 
 7
-java:S1220""Move this file to a named package.8å¼­Í1
-G	java:S106"+Replace this use of System.out by a logger.(™Ş¨ë8—½­Í1
-G	java:S106"+Replace this use of System.out by a logger.(Şñßò8˜½­Í1
-L	java:S106"+Replace this use of System.out by a logger.(×¥õúÿÿÿÿ8™½­Í1
-G	java:S106'"+Replace this use of System.out by a logger.(™Ş¨ë8›½­Í1
-G	java:S106("+Replace this use of System.out by a logger.(Şñßò8¤½­Í1
-L	java:S106)"+Replace this use of System.out by a logger.(×¥õúÿÿÿÿ8´½­Í1
-O
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8ö€¯Í1
+java:S1220""Move this file to a named package.8Õı¤¬Í1
+L	java:S106"+Replace this use of System.out by a logger.(Ïûóºüÿÿÿÿ8äı¤¬Í1
+L	java:S106"+Replace this use of System.out by a logger.(Ëğ©Ùùÿÿÿÿ8åı¤¬Í1
+L	java:S106"+Replace this use of System.out by a logger.(£İÉÿÿÿÿÿ8åı¤¬Í1
+L	java:S106("+Replace this use of System.out by a logger.(Ïûóºüÿÿÿÿ8èı¤¬Í1
+L	java:S106)"+Replace this use of System.out by a logger.(Ëğ©Ùùÿÿÿÿ8éı¤¬Í1
+L	java:S106*"+Replace this use of System.out by a logger.(£İÉÿÿÿÿÿ8éı¤¬Í1
+G	java:S106/"+Replace this use of System.out by a logger.(¨Ò8˜™¦¬Í1
+L	java:S1060"+Replace this use of System.out by a logger.(¦™şıÿÿÿÿ8”˜§¬Í1

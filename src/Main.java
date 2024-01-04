@@ -1,13 +1,14 @@
-import java.util.Arrays;
+import managers.TaskManager;
+import tasks.*;
 
 public class Main {
 
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
-        Task task1 = new Task("Задача 1", "Завести задачу1", TaskStatus.NEW);
-        Task task2 = new Task("Задача 2", "Завести задачу2", TaskStatus.NEW);
-        Epic epic3 = new Epic("Эпик 1", "Завести эпик1", TaskStatus.NEW);
-        Epic epic4 = new Epic("Эпик 2", "Завести эпик 2",TaskStatus.NEW);
+        Task task1 = new Task("Задача 1", "Завести задачу1");
+        Task task2 = new Task("Задача 2", "Завести задачу2");
+        Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
+        Epic epic4 = new Epic("Эпик 2", "Завести эпик 2");
 
 
         taskManager.createTask(task1);
@@ -15,40 +16,40 @@ public class Main {
         taskManager.createEpic(epic3);
         taskManager.createEpic(epic4);
 
-        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", TaskStatus.NEW, epic3);
-        Subtask subtask6 = new Subtask("Подзадача2", "Для эпика 1", TaskStatus.NEW, epic3);
-        Subtask subtask7 = new Subtask("Подзадача1", "Для эпика 2", TaskStatus.NEW, epic4);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3);
+        Subtask subtask6 = new Subtask("Подзадача2", "Для эпика 1", epic3);
+        Subtask subtask7 = new Subtask("Подзадача1", "Для эпика 2", epic4);
 
         taskManager.createSubtasks(subtask5);
         taskManager.createSubtasks(subtask6);
         taskManager.createSubtasks(subtask7);
-        System.out.println(taskManager.tasks);
-        System.out.println(taskManager.epics);
-        System.out.println(taskManager.subtasks);
+        System.out.println(taskManager.getTasks());
+        System.out.println(taskManager.getEpics());
+        System.out.println(taskManager.getSubtasks());
 
-        task1.status = TaskStatus.IN_PROGRESS;
-        subtask6.status = TaskStatus.DONE;
-        subtask7.status = TaskStatus.IN_PROGRESS;
-        epic3.name = "Переименовнный эпик  1";
+        task1.setStatus(TaskStatus.IN_PROGRESS);
+        subtask6.setStatus(TaskStatus.DONE);
+        subtask7.setStatus(TaskStatus.IN_PROGRESS);
+        epic3.setName("Переименовнный эпик  1");
 
         taskManager.updateTask(task1);
         taskManager.updateSubtask(subtask6);
         taskManager.updateSubtask(subtask7);
         taskManager.updateEpic(epic3);
 
-        System.out.println(taskManager.tasks);
-        System.out.println(taskManager.epics);
-        System.out.println(taskManager.subtasks);
+        System.out.println(taskManager.getTasks());
+        System.out.println(taskManager.getEpics());
+        System.out.println(taskManager.getSubtasks());
 
-        subtask5.status = TaskStatus.DONE;
+        subtask5.setStatus(TaskStatus.DONE);
         taskManager.updateSubtask(subtask5);
 
-        taskManager.printSubtaskInEpic(epic3);
-        taskManager.printSubtaskInEpic(epic4);
+        System.out.println(epic3.getListSubtask());
+        System.out.println(epic4.getListSubtask());
 
-        taskManager.findTask(2);
-        taskManager.findEpic(3);
-        taskManager.findSubtask(1);
+        taskManager.findTask(task2);
+        taskManager.findEpic(epic3);
+        taskManager.findSubtask(subtask7);
 
         taskManager.removeTask(task1);
         taskManager.removeEpic(epic3);
