@@ -1,0 +1,11 @@
+
+7
+java:S1220""Move this file to a named package.8εΌ­Ν1
+G	java:S106"+Replace this use of System.out by a logger.(™ή¨λ8—½­Ν1
+G	java:S106"+Replace this use of System.out by a logger.(ήρίς8½­Ν1
+L	java:S106"+Replace this use of System.out by a logger.(Χ¥υϊÿÿÿÿ8™½­Ν1
+G	java:S106'"+Replace this use of System.out by a logger.(™ή¨λ8›½­Ν1
+G	java:S106("+Replace this use of System.out by a logger.(ήρίς8¤½­Ν1
+L	java:S106)"+Replace this use of System.out by a logger.(Χ¥υϊÿÿÿÿ8΄½­Ν1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(ξ–Ιόÿÿÿÿ8φ€―Ν1
