@@ -9,10 +9,6 @@ public class Epic extends Task {
         return listSubtask;
     }
 
-    public void setListSubtask(ArrayList<Subtask> listSubtask) {
-        this.listSubtask = listSubtask;
-    }
-
     public Epic(String name, String description ){
         super(name, description);
         listSubtask = new ArrayList<>();

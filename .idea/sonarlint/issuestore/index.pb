@@ -3,14 +3,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 =
 src/Main.java,9\2\924f089edb4af5ee45c8a9d1129cd28e2b368138
-=
-src/Task.java,1\5\1563d9cc43d5cc4a5c559a91e0489b8331ce260c
-@
-src/Subtask.java,2\5\25dc9d20793204ab083ccfe675455fe98be678c3
-D
-src/TaskManager.java,9\b\9b8f132576a374eb386e9a71798557962c27e297
-=
-src/Epic.java,2\b\2b84a0a14af27d1f1130a627b5e77dcfe54fa918
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
 Å
@@ -29,8 +21,6 @@ C
 src/tasks/Epic.java,0\5\050f3b5f1819e12243e13d42c13959c5e62c12b0
 F
 src/tasks/Subtask.java,b\b\bbba77347ddbcc1dcca42f59542c14c2194b0659
-J
-src/tasks/TaskManager.java,0\1\0162e2aeec6086fa2315196954d11c5b098945d7
 I
 src/tasks/TaskStatus.java,6\a\6a8fdf9cab4dd4b1b0dd4f892822dc7f3940d15f
 M

@@ -16,20 +16,12 @@ public class Task {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public TaskStatus getStatus() {
         return status;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public void setStatus(TaskStatus status) {
