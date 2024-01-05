@@ -16,27 +16,15 @@ public class TaskManager {
     protected int id = 0;
 
     public ArrayList <Subtask> getSubtasks() {
-        ArrayList<Subtask> subtaskArrayList = new ArrayList<>();
-        for (Subtask subtask : subtasks.values()) {
-            subtaskArrayList.add(subtask);
-        }
-        return subtaskArrayList;
+        return new ArrayList<>(subtasks.values());
     }
 
     public ArrayList <Task> getTasks() {
-        ArrayList<Task> taskArrayList = new ArrayList<>();
-        for (Task task : tasks.values()) {
-            taskArrayList.add(task);
-        }
-        return taskArrayList;
+        return new ArrayList<>(tasks.values());
     }
 
     public ArrayList <Epic> getEpics() {
-        ArrayList<Epic> epicArrayList = new ArrayList<>();
-        for (Epic epic : epics.values()) {
-            epicArrayList.add(epic);
-        }
-        return epicArrayList;
+        return new ArrayList<>(epics.values());
     }
 
     public int createTask(Task task) {
