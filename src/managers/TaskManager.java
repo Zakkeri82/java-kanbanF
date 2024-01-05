@@ -97,7 +97,6 @@ public class TaskManager {
             int statusNew = 0;
             int statusDone = 0;
             for (Subtask subtask : epic.getListSubtask()) {
-
                 switch (subtask.getStatus()) {
                     case NEW:
                         ++statusNew;
@@ -108,10 +107,10 @@ public class TaskManager {
                     default:
                 }
             }
-            if (statusNew == epic.getListSubtask().size() && epic.getStatus() != TaskStatus.NEW) {
+            if (statusNew == epic.getListSubtask().size()) {
                 epic.setStatus(TaskStatus.NEW);
 
-            } else if (statusDone == epic.getListSubtask().size() && epic.getStatus() != TaskStatus.DONE) {
+            } else if (statusDone == epic.getListSubtask().size()) {
                 epic.setStatus(TaskStatus.DONE);
 
             } else if (epic.getStatus() != TaskStatus.IN_PROGRESS) {

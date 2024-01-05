@@ -25,12 +25,8 @@ I
 src/tasks/TaskStatus.java,6\a\6a8fdf9cab4dd4b1b0dd4f892822dc7f3940d15f
 M
 src/managers/TaskManager.java,6\8\681f22ab10b5de3ad763c4bb398b6f42f07d954c
-Å
-Q.idea/sonarlint/securityhotspotstore/1/5/1563d9cc43d5cc4a5c559a91e0489b8331ce260c,8\6\862ece2c9e205fac87d6c957efbec49093616cb2
 w
 G.idea/sonarlint/issuestore/3/2/3274c13c802fdd4f4c0bd72afbb851f447e32183,f\4\f47efa2bc50229b66ea27cf909c6197fa25f34d8
-Å
-Q.idea/sonarlint/securityhotspotstore/2/5/25dc9d20793204ab083ccfe675455fe98be678c3,5\a\5a05f4566e897c5d436e06b45722ec57ded33a06
 Å
 Q.idea/sonarlint/securityhotspotstore/3/2/3274c13c802fdd4f4c0bd72afbb851f447e32183,7\d\7de3ba5905055cf9c0638852c89ffbac498c821c
 Å
@@ -39,10 +35,6 @@ w
 G.idea/sonarlint/issuestore/0/5/050f3b5f1819e12243e13d42c13959c5e62c12b0,2\4\24e2a43d0915782d17d6625538200117fef58c8d
 w
 G.idea/sonarlint/issuestore/6/a/6a8fdf9cab4dd4b1b0dd4f892822dc7f3940d15f,e\4\e42b00c3b33fef6629067721972e36b6d0f406a4
-Å
-Q.idea/sonarlint/securityhotspotstore/2/b/2b84a0a14af27d1f1130a627b5e77dcfe54fa918,a\6\a651e27c46810b0b9a4765c889962e671b065ea3
-Å
-Q.idea/sonarlint/securityhotspotstore/9/b/9b8f132576a374eb386e9a71798557962c27e297,8\c\8cfc0f12313ccbfa6361e380c28aa746464b1084
 Å
 Q.idea/sonarlint/securityhotspotstore/b/0/b08f1ab659fbdd998f45c0def99188f980cc899b,4\e\4e028b50ffe3b3b0e5b68667516a23fa4af8c838
 Å
@@ -67,8 +59,6 @@ Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61
 Q.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,9\0\909762385fc6eb20f922a91c6865741308b57f2c
 w
 G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0e0f9cec86fe4b939ae22be5264c758801eb28f
-Å
-Q.idea/sonarlint/securityhotspotstore/0/1/0162e2aeec6086fa2315196954d11c5b098945d7,d\f\df8ab6de572e2be29761015033ffc57cd92d06e0
 Å
 Q.idea/sonarlint/securityhotspotstore/0/5/050f3b5f1819e12243e13d42c13959c5e62c12b0,6\5\65948cf942cf97012abef1550b4322a7e176dbef
 Å
