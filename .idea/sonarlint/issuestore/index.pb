@@ -63,3 +63,17 @@ G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0
 Q.idea/sonarlint/securityhotspotstore/0/5/050f3b5f1819e12243e13d42c13959c5e62c12b0,6\5\65948cf942cf97012abef1550b4322a7e176dbef
 Å
 Q.idea/sonarlint/securityhotspotstore/6/a/6a8fdf9cab4dd4b1b0dd4f892822dc7f3940d15f,6\d\6da8303cd608c4b87835379e54252d601e92d400
+U
+%src/managers/InMemoryTaskManager.java,2\b\2bbb42d11d5bd3bec77f32049398400c34770d1a
+J
+src/managers/Managers.java,2\1\21a45862de69fc2804a7a028677c4050a1cefc48
+P
+ src/managers/HistoryManager.java,2\c\2ce8921cf227c6461f7c968aaad5bca2ef2cbc8a
+X
+(src/managers/InMemoryHistoryManager.java,d\6\d6f4553ac3396c2e55c0d7155e2bc72b95c82998
+]
+-test/managers/InMemoryHistoryManagerTest.java,a\d\ad3b84ea6e6d0311662c7f31e76c21d4c23c039d
+Z
+*test/managers/InMemoryTaskManagerTest.java,d\2\d2ca14c996d0c1769f80a812aa671903a2fe5834
+O
+test/managers/ManagersTest.java,5\1\511065a95d5762defaaf0b8b62b5d8429ed4cdb4

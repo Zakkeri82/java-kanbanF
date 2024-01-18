@@ -1,3 +1,5 @@
 
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²…»òÿÿÿÿÿ8’¾Ø¬Í1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²…»òÿÿÿÿÿ8¶°ÃÃÐ1
+H
+java:S2160"+Override the "equals" method in this class.(‡¢ÉÎ8Çñ—ÝÑ1
