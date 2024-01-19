@@ -33,10 +33,11 @@ public class Main {
 
 
 
-        taskManager.findTask(task1);
+
         taskManager.findTask(task2);
         taskManager.findEpic(epic4);
         taskManager.findEpic(epic3);
+        taskManager.findTask(task1);
         taskManager.findSubtask(subtask5);
         taskManager.findSubtask(subtask6);
         taskManager.findSubtask(subtask7);
@@ -47,7 +48,13 @@ public class Main {
 
         System.out.println(taskManager.getHistory());
 
+         // меняю название task1
+        task1.setName("Новое имя");
 
+        //повторно её просматриваю
+        taskManager.findTask(task1);
+
+        System.out.println(taskManager.getHistory());
 
 
 

@@ -6,7 +6,6 @@ import tasks.Epic;
 import tasks.Subtask;
 import tasks.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,7 +28,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(savedTask, "Таска не найдена.");
         assertEquals(task, savedTask, "Таски не совпадают");
 
-        final ArrayList<Task> tasks = taskManager.getTasks();
+        final List<Task> tasks = taskManager.getTasks();
 
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
@@ -46,7 +45,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(savedEpic, "Эпик не найден.");
         assertEquals(epic, savedEpic, "Эпики не совпадают");
 
-        final ArrayList<Epic> epics = taskManager.getEpics();
+        final List<Epic> epics = taskManager.getEpics();
 
         assertNotNull(epics, "Задачи не возвращаются.");
         assertEquals(1, epics.size(), "Неверное количество эпиков.");
@@ -65,7 +64,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(subtask, "Сабтаска не найдена");
         assertEquals(subtask, savedSubtask, "Сабтаски не совпадают");
 
-        final ArrayList<Subtask> subtasks = taskManager.getSubtasks();
+        final List<Subtask> subtasks = taskManager.getSubtasks();
 
         assertNotNull(subtasks, "Сабтаски не возвращаются.");
         assertEquals(1, subtasks.size(), "Неверное количество сабтасок.");
@@ -128,9 +127,9 @@ class InMemoryTaskManagerTest {
         Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
         subtask.setEpicId(3);
         taskManager.createSubtasks(subtask);
-        int sizeSubtaskArrayListAfterCreateSubtask = epic.getListSubtask().size();
+        int sizeSubtaskListAfterCreateSubtask = epic.getListSubtask().size();
 
-       assertEquals(0, sizeSubtaskArrayListAfterCreateSubtask, "Добавлена сабтаска с несуществующим epicId");
+       assertEquals(0, sizeSubtaskListAfterCreateSubtask, "Добавлена сабтаска с несуществующим epicId");
     }
 
     @Test

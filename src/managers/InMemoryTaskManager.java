@@ -22,17 +22,17 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList <Task> getTasks() {
+    public List <Task> getTasks() {
         return new ArrayList<>(tasks.values());
     }
 
     @Override
-    public ArrayList <Epic> getEpics() {
+    public List <Epic> getEpics() {
         return new ArrayList<>(epics.values());
     }
 
     @Override
-    public ArrayList <Subtask> getSubtasks() {
+    public List <Subtask> getSubtasks() {
         return new ArrayList<>(subtasks.values());
     }
 
@@ -45,11 +45,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public  Task findTask(Task task) {
-        if (tasks.containsKey(task.getId())) {
+        Task findTask = tasks.get(task.getId());
+        if (findTask != null) {
             historyManager.add(task);
         }
-        return tasks.get(task.getId());
-
+        return findTask;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void updateTask(Task task) {
-            tasks.put(task.getId(), task);
+        tasks.put(task.getId(), task);
     }
 
     @Override
@@ -77,10 +77,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Epic findEpic(Epic epic) {
-        if (epics.containsKey(epic.getId())) {
+        Epic findEpic = epics.get(epic.getId());
+        if (findEpic != null) {
             historyManager.add(epic);
         }
-        return epics.get(epic.getId());
+        return findEpic;
     }
 
     @Override
@@ -93,7 +94,7 @@ public class InMemoryTaskManager implements TaskManager {
     public void removeEpic(Epic epic) {
         epics.remove(epic.getId());
         epic.getListSubtask().clear();
-        ArrayList<Subtask> listSubtask = getSubtasks();
+        List<Subtask> listSubtask = getSubtasks();
         for (Subtask subtask : listSubtask) {
             if (subtask.getEpicId() == epic.getId()) {
                 subtasks.remove(subtask.getId());
@@ -152,10 +153,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Subtask findSubtask(Subtask subtask) {
-        if (subtasks.containsKey(subtask.getId())) {
+        Subtask findSubtask = subtasks.get(subtask.getId());
+        if (findSubtask != null) {
             historyManager.add(subtask);
         }
-        return subtasks.get(subtask.getId());
+        return findSubtask;
     }
 
     @Override
