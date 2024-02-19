@@ -1,4 +1,3 @@
-import managers.InMemoryTaskManager;
 import managers.Managers;
 import managers.TaskManager;
 import tasks.*;
@@ -9,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         TaskManager taskManager = Managers.getDefault();
-
 
         Task task1 = new Task("Задача 1", "Завести задачу1");
         Task task2 = new Task("Задача 2", "Завести задачу2");
@@ -31,30 +29,35 @@ public class Main {
         taskManager.createSubtasks(subtask8);
         taskManager.createSubtasks(subtask9);
 
-
-
-
         taskManager.findTask(task2);
-        taskManager.findEpic(epic4);
+        taskManager.findTask(task2);
+        /*taskManager.findEpic(epic4);
         taskManager.findEpic(epic3);
         taskManager.findTask(task1);
         taskManager.findSubtask(subtask5);
         taskManager.findSubtask(subtask6);
-        taskManager.findSubtask(subtask7);
-        taskManager.findTask(task1);
+        taskManager.findSubtask(subtask7);*/
+
+        System.out.println(taskManager.getHistory());
+
+       /* taskManager.findSubtask(subtask7);
         taskManager.findTask(task2);
+        taskManager.findTask(task1);
+        taskManager.findSubtask(subtask7);
         taskManager.findEpic(epic4);
         taskManager.findEpic(epic3);
 
         System.out.println(taskManager.getHistory());
 
-         // меняю название task1
-        task1.setName("Новое имя");
-
-        //повторно её просматриваю
-        taskManager.findTask(task1);
+        taskManager.removeSubtask(subtask5);
+        taskManager.removeTask(task1);
 
         System.out.println(taskManager.getHistory());
+
+        taskManager.removeEpic(epic3);
+
+        System.out.println(taskManager.getHistory());*/
+
 
 
 

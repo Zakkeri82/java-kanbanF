@@ -59,7 +59,7 @@ class InMemoryTaskManagerTest {
         Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
 
         taskManager.createSubtasks(subtask);
-        final  Subtask savedSubtask = taskManager.findSubtask(subtask);
+        final Subtask savedSubtask = taskManager.findSubtask(subtask);
 
         assertNotNull(subtask, "Сабтаска не найдена");
         assertEquals(subtask, savedSubtask, "Сабтаски не совпадают");
@@ -80,8 +80,6 @@ class InMemoryTaskManagerTest {
         taskManager.findTask(task);
 
         final List<Task> history = taskManager.getHistory();
-        // List<Task> history = historyManager.getHistory();
-       //historyManager.add(task);
 
         assertNotNull(history, "История пустая.");
         assertEquals(1, history.size(), "История пустая.");
@@ -121,7 +119,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    public void cannotAddSubtaskToNonExistentEpic(){
+    public void cannotAddSubtaskToNonExistentEpic() {
         Epic epic = new Epic("Эпик", "Завести эпик");
         taskManager.createEpic(epic);
         Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
@@ -129,21 +127,21 @@ class InMemoryTaskManagerTest {
         taskManager.createSubtasks(subtask);
         int sizeSubtaskListAfterCreateSubtask = epic.getListSubtask().size();
 
-       assertEquals(0, sizeSubtaskListAfterCreateSubtask, "Добавлена сабтаска с несуществующим epicId");
+        assertEquals(0, sizeSubtaskListAfterCreateSubtask, "Добавлена сабтаска с несуществующим epicId");
     }
 
     @Test
-    public void cannotUpdateEpicToNonExistentId(){
+    public void cannotUpdateEpicToNonExistentId() {
         Epic epic = new Epic("Эпик", "Завести эпик");
         epic.setId(10);
 
         taskManager.updateEpic(epic);
 
-        assertNull(taskManager.findEpic(epic),"Обновлен эпик с несуществующим Id");
+        assertNull(taskManager.findEpic(epic), "Обновлен эпик с несуществующим Id");
     }
 
     @Test
-    public void cannotUpdateSubtaskToNonExistentId(){
+    public void cannotUpdateSubtaskToNonExistentId() {
         Epic epic = new Epic("Эпик", "Завести эпик");
         taskManager.createEpic(epic);
         Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
@@ -158,12 +156,66 @@ class InMemoryTaskManagerTest {
     @Test
     public void isNoConflictIdTask() {
         Task task = new Task("Задача", "Завести задачу");
-       int taskIdBeforeCreate = 20;
-       task.setId(taskIdBeforeCreate);
+        int taskIdBeforeCreate = 20;
+        task.setId(taskIdBeforeCreate);
 
-       taskManager.createTask(task);
-       int taskIdAfterCreate = task.getId();
+        taskManager.createTask(task);
+        int taskIdAfterCreate = task.getId();
 
-       assertNotEquals(taskIdBeforeCreate, taskIdAfterCreate, "Добавлена задача с заданным номером");
+        assertNotEquals(taskIdBeforeCreate, taskIdAfterCreate, "Добавлена задача с заданным номером");
+    }
+
+    @Test
+    void clearTasks() {
+        Task task = new Task("Задача 1", "Завести задачу 1");
+        Task task1 = new Task("Задача 2", "Завести задачу 2");
+        taskManager.createTask(task);
+        taskManager.createTask(task1);
+
+        taskManager.clearTasks();
+
+        assertEquals(0, taskManager.getTasks().size(), "Список задач не удален");
+    }
+
+    @Test
+    void clearEpics() {
+        Epic epic1 = new Epic("Эпик 1", "Завести эпик 1");
+        Epic epic2 = new Epic("Эпик 2", "Завести эпик 2");
+        taskManager.createEpic(epic1);
+        taskManager.createEpic(epic2);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic1);
+        taskManager.createSubtasks(subtask);
+
+        taskManager.clearEpics();
+
+        assertTrue(taskManager.getEpics().size() == 0, "Список эпиков не удален");
+        assertTrue(taskManager.getSubtasks().size() == 0, "Подзадачи эпика не удалены");
+    }
+
+    @Test
+    void removeEpic() {
+        Epic epic1 = new Epic("Эпик 1", "Завести эпик 1");
+        taskManager.createEpic(epic1);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic1);
+        taskManager.createSubtasks(subtask);
+
+        taskManager.removeEpic(epic1);
+
+        assertFalse(taskManager.getEpics().contains(epic1), "Эпик не удален");
+        assertFalse(taskManager.getSubtasks().contains(subtask), "Подзадача эпика не удалена");
+    }
+
+    @Test
+    void clearSubtasks() {
+        Epic epic1 = new Epic("Эпик 1", "Завести эпик 1");
+        taskManager.createEpic(epic1);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic1);
+        Subtask subtask1 = new Subtask("Подзадача2", "Для эпика 1", epic1);
+        taskManager.createSubtasks(subtask);
+        taskManager.createSubtasks(subtask1);
+
+        taskManager.clearSubtasks();
+
+        assertTrue(taskManager.getSubtasks().size() == 0, "Список подзадач не удален");
     }
 }
