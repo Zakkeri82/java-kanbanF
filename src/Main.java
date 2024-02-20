@@ -31,16 +31,16 @@ public class Main {
 
         taskManager.findTask(task2);
         taskManager.findTask(task2);
-        /*taskManager.findEpic(epic4);
+        taskManager.findEpic(epic4);
         taskManager.findEpic(epic3);
         taskManager.findTask(task1);
         taskManager.findSubtask(subtask5);
         taskManager.findSubtask(subtask6);
-        taskManager.findSubtask(subtask7);*/
+        taskManager.findSubtask(subtask7);
 
         System.out.println(taskManager.getHistory());
 
-       /* taskManager.findSubtask(subtask7);
+        taskManager.findSubtask(subtask7);
         taskManager.findTask(task2);
         taskManager.findTask(task1);
         taskManager.findSubtask(subtask7);
@@ -56,13 +56,6 @@ public class Main {
 
         taskManager.removeEpic(epic3);
 
-        System.out.println(taskManager.getHistory());*/
-
-
-
-
-
-
+        System.out.println(taskManager.getHistory());
     }
-
 }

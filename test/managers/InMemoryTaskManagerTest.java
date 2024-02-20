@@ -178,6 +178,16 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
+    void removeTask(){
+        Task task = new Task("Задача 1", "Завести задачу 1");
+        taskManager.createTask(task);
+
+        taskManager.removeTask(task);
+
+        assertFalse(taskManager.getTasks().contains(task), "Задача не удалена");
+    }
+
+    @Test
     void clearEpics() {
         Epic epic1 = new Epic("Эпик 1", "Завести эпик 1");
         Epic epic2 = new Epic("Эпик 2", "Завести эпик 2");
@@ -217,5 +227,20 @@ class InMemoryTaskManagerTest {
         taskManager.clearSubtasks();
 
         assertTrue(taskManager.getSubtasks().size() == 0, "Список подзадач не удален");
+        assertTrue(epic1.getListSubtask().size() == 0, "Подзадачи не удалены из эпика");
+    }
+
+    @Test
+    void removeSubtask() {
+        Epic epic1 = new Epic("Эпик 1", "Завести эпик 1");
+        taskManager.createEpic(epic1);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic1);
+        taskManager.createSubtasks(subtask);
+
+        taskManager.removeSubtask(subtask);
+
+        assertFalse(taskManager.getSubtasks().contains(subtask), "Подзадача не удалена из списка");
+        assertFalse(epic1.getListSubtask().contains(subtask), "Подзадача не удалена из эпика");
+
     }
 }
