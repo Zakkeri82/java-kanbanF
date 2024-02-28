@@ -77,3 +77,6 @@ Z
 *test/managers/InMemoryTaskManagerTest.java,d\2\d2ca14c996d0c1769f80a812aa671903a2fe5834
 O
 test/managers/ManagersTest.java,5\1\511065a95d5762defaaf0b8b62b5d8429ed4cdb4
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
