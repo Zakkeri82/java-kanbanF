@@ -1,13 +1,13 @@
 package tasks;
 
-public enum TaskStatus {
-    NEW("NEW"),
-    IN_PROGRESS("IN_PROGRESS"),
-    DONE("DONE");
+public enum TypeTask {
+    TASK("TASK"),
+    EPIC("EPIC"),
+    SUBTASK("SUBTASK");
 
     private final String url;
 
-    TaskStatus(String url) {
+    TypeTask(String url) {
         this.url = url;
     }
 

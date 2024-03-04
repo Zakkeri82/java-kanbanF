@@ -1,11 +1,12 @@
 
-v
-java:S1192"TDefine a constant instead of duplicating this literal "Ğ”Ğ»Ñ ÑĞ¿Ğ¸ĞºĞ° 1" 3 times.(‘µÒáıÿÿÿÿ8ì‘ŞîÛ1
 7
-java:S1220""Move this file to a named package.8ü‘ŞîÛ1
-L	java:S106)"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8’ŞîÛ1
-L	java:S1062"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8ã¦©Ü1
-L	java:S1067"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8é¦©Ü1
-L	java:S106;"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8î¦©Ü1
+java:S1220""Move this file to a named package.8¨ï‘†à1
+L	java:S106"+Replace this use of System.out by a logger.(Ïûóºüÿÿÿÿ8·ï‘†à1
+L	java:S106"+Replace this use of System.out by a logger.(Ëğ©Ùùÿÿÿÿ8·ï‘†à1
+L	java:S106"+Replace this use of System.out by a logger.(£İÉÿÿÿÿÿ8·ï‘†à1
+L	java:S106"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8·ï‘†à1
+L	java:S106#"+Replace this use of System.out by a logger.(«‘„ïıÿÿÿÿ8Çï‘†à1
+W
+java:S1128";Remove this unused import 'managers.FileBackedTaskManager'.(…ñÇ8òÆ•†à1
 M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¡’ŞîÛ1
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8òÆ•†à1
