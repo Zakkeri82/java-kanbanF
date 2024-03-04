@@ -58,12 +58,12 @@ public class InMemoryHistoryManager implements HistoryManager {
         }
     }
 
-      protected static class Node<TaskT> {
-        protected TaskT data;
-        protected Node<TaskT> next;
-        protected Node<TaskT> prev;
+      protected static class Node<T> {
+        protected Task data;
+        protected Node<T> next;
+        protected Node<T> prev;
 
-        public Node(Node<TaskT> prev, TaskT data, Node<TaskT> next) {
+        public Node(Node<T> prev, Task data, Node<T> next) {
             this.data = data;
             this.next = next;
             this.prev = prev;
