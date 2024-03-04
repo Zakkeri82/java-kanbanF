@@ -21,7 +21,7 @@ class InMemoryHistoryManagerTest {
         Epic epic = new Epic("Эпик 1", "Завести эпик 1");
         taskManager.createTask(task);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2);
         taskManager.createSubtasks(subtask);
 
         taskManager.findTask(task);
@@ -51,7 +51,7 @@ class InMemoryHistoryManagerTest {
         taskManager.createTask(task);
         taskManager.createTask(task1);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic.getId());
         taskManager.createSubtasks(subtask);
         taskManager.findTask(task);
         taskManager.findEpic(epic);
@@ -74,7 +74,7 @@ class InMemoryHistoryManagerTest {
         Epic epic = new Epic("Эпик 1", "Завести эпик 1");
         taskManager.createTask(task);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2);
         taskManager.createSubtasks(subtask);
 
         taskManager.findTask(task);

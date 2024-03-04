@@ -5,10 +5,10 @@ import tasks.Task;
 import java.util.*;
 
 public class InMemoryHistoryManager implements HistoryManager {
-    protected Map<Integer, Node> historyList = new HashMap<>();
+    protected Map<Integer, Node<Task>> historyList = new HashMap<>();
     private Node<Task> head;
     private Node<Task> tail;
-    private int size = 0;
+    protected int size = 0;
 
     @Override
     public List<Task> getHistory() {
@@ -39,7 +39,7 @@ public class InMemoryHistoryManager implements HistoryManager {
         return historyArrayList;
     }
 
-    public void removeNode(Node node) {
+    protected void removeNode(Node<Task> node) {
         if (node.prev == null && node.next == null) {
             head = null;
             tail = null;
@@ -58,19 +58,19 @@ public class InMemoryHistoryManager implements HistoryManager {
         }
     }
 
-    class Node<Task> {
-        public Task data;
-        public Node<Task> next;
-        public Node<Task> prev;
+      protected static class Node<T> {
+        protected Task data;
+        protected Node<T> next;
+        protected Node<T> prev;
 
-        public Node(Node<Task> prev, Task data, Node<Task> next) {
+        public Node(Node<T> prev, Task data, Node<T> next) {
             this.data = data;
             this.next = next;
             this.prev = prev;
         }
     }
 
-    public Node<Task> linkLast(Task task) {
+    protected Node<Task> linkLast(Task task) {
         final Node<Task> oldLast = tail;
         final Node<Task> newNode = new Node<>(oldLast, task, null);
         tail = newNode;

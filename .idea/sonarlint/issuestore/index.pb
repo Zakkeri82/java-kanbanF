@@ -80,3 +80,17 @@ O
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+P
+ .github/workflows/ api-tests.yml,9\8\98c091361e384714ee27e4fbfd23ad9f3ab76629
+W
+'src/managers/FileBackedTaskManager.java,a\9\a970b0918ff89efb73396e0ddd35df0747f2fd59
+G
+src/tasks/TypeTask.java,d\3\d3f07f5ce10264ddd63e0f904df74be91bec3e6e
+R
+"src/managers/CSVTaskFormatter.java,b\e\be48beeff03507beaf7863bd01bd9ac2f10ae4a7
+V
+&src/managers/ManagerSaveException.java,2\9\297a149db39e6425d50d8e93a76d1c1251f76284
+9
+	tasks.csv,c\a\ca3f0cf937a9ff065df723d0aeced5355330a301
+\
+,test/managers/FileBackedTaskManagerTest.java,6\0\60bfb74e197e3b93f9d559fec48a9a31c3186161
