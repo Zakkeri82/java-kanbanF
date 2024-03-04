@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.List;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
-    CSVTaskFormatter taskFormatter = new CSVTaskFormatter();
     protected File file;
 
     public FileBackedTaskManager(File file) {
@@ -19,17 +18,17 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         try (Writer fileWriter = new FileWriter(file); BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             if (!tasks.isEmpty()) {
                 for (Task task : tasks.values()) {
-                    bufferedWriter.write(taskFormatter.toString(task));
+                    bufferedWriter.write(CSVTaskFormatter.toString(task));
                 }
             }
             if (!epics.isEmpty()) {
                 for (Task task : epics.values()) {
-                    bufferedWriter.write(taskFormatter.toString(task));
+                    bufferedWriter.write(CSVTaskFormatter.toString(task));
                 }
             }
             if (!subtasks.isEmpty()) {
                 for (Task task : subtasks.values()) {
-                    bufferedWriter.write(taskFormatter.toString(task));
+                    bufferedWriter.write(CSVTaskFormatter.toString(task));
                 }
             }
             fileWriter.write("\n");

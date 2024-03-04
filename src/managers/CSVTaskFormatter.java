@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVTaskFormatter {
-    public String toString(Task task) {
+    public static String toString(Task task) {
         String type;
         String[] dataTask;
         if (task instanceof Epic) {
@@ -35,7 +35,7 @@ public class CSVTaskFormatter {
         return String.join(",", dataTask) + "\n";
     }
 
-    public Task fromString(String value) {
+    public static Task fromString(String value) {
         String[] dataTask = value.split(",");
         Task task = null;
         if (dataTask[1].equals("TASK")) {
