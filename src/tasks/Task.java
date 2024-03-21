@@ -1,5 +1,8 @@
 package tasks;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Task {
@@ -7,11 +10,47 @@ public class Task {
     protected String description;
     protected TaskStatus status;
     protected int id;
+    protected Duration duration;
+    protected LocalDateTime startTime;
+
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy|HH:mm");
 
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
         this.status = TaskStatus.NEW;
+    }
+
+    public Task(String name, String description, String startTime, int duration) {
+        this.name = name;
+        this.description = description;
+        this.status = TaskStatus.NEW;
+        this.startTime = LocalDateTime.parse(startTime, formatter);
+        this.duration = Duration.ofMinutes(duration);
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public DateTimeFormatter getFormatter() {
+        return formatter;
+    }
+
+    public LocalDateTime getEndTime() {
+        return startTime.plusMinutes(duration.toMinutes());
+    }
+
+    public Duration getDuration() {
+            return duration;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
     public int getId() {
@@ -48,7 +87,8 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Номер: " + id + ", имя: " + name + ", описание: " + description + ", статус: " + status + "\n";
+        return "Номер: " + id + ", имя: " + name + ", описание: " + description + ", статус: " + status +
+                ", дата начала: " + startTime + ", длительность: " + duration +  "\n";
     }
 
     @Override
