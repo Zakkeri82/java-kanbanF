@@ -5,7 +5,6 @@ import tasks.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Formatter;
 import java.util.List;
 
 public class CSVTaskFormatter {
@@ -31,7 +30,7 @@ public class CSVTaskFormatter {
             } else {
                 dataTask[5] = null;
             }
-            if (task.getDuration()!= null) {
+            if (task.getDuration() != null) {
                 dataTask[6] = Long.toString(task.getDuration().toMinutes());
             } else {
                 dataTask[6] = null;
@@ -50,7 +49,7 @@ public class CSVTaskFormatter {
             } else {
                 dataTask[5] = null;
             }
-            if (task.getDuration()!= null) {
+            if (task.getDuration() != null) {
                 dataTask[6] = Long.toString(task.getDuration().toMinutes());
             } else {
                 dataTask[6] = null;
@@ -63,7 +62,7 @@ public class CSVTaskFormatter {
         String[] dataTask = value.split(",");
         Task task = null;
         if (dataTask[1].equals("TASK")) {
-            task = new Task(dataTask[2], dataTask[4], dataTask[5],  Integer.parseInt(dataTask[6]));
+            task = new Task(dataTask[2], dataTask[4], dataTask[5], Integer.parseInt(dataTask[6]));
             task.setId(Integer.parseInt(dataTask[0]));
             task.setStatus(TaskStatus.valueOf(dataTask[3]));
 
