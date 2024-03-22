@@ -6,7 +6,9 @@ import tasks.Subtask;
 import tasks.Task;
 import tasks.TaskStatus;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,6 +31,37 @@ public abstract class TaskManagerTest<T extends TaskManager> {
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
         assertEquals(task, tasks.get(0), "Задачи не совпадают.");
+    }
+
+    @Test
+    void сreate_task_throws_ManagerSaveException() {
+        Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|10:00", 30);
+        Task task2 = new Task("Задача 2", "Завести задачу2", "16.03.2024|10:10", 15);
+        Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
+        taskManager.createTask(task1);
+        taskManager.createEpic(epic3);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "16.03.2024|10:15", 15);
+
+        assertThrows(ManagerSaveException.class, () -> taskManager.createTask(task2));
+        assertThrows(ManagerSaveException.class, () -> taskManager.createTask(subtask5));
+    }
+
+    @Test
+    void update_task_throws_ManagerSaveException() {
+        Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|10:00", 30);
+        Task task2 = new Task("Задача 2", "Завести задачу2", "16.03.2024|11:00", 15);
+        Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
+        taskManager.createTask(task1);
+        taskManager.createTask(task2);
+        taskManager.createEpic(epic3);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "16.03.2024|12:00", 15);
+        taskManager.createTask(subtask5);
+
+        task2.setStartTime(LocalDateTime.parse("16.03.2024|10:00", epic3.getFormatter()));
+        subtask5.setStartTime(LocalDateTime.parse("16.03.2024|10:00", subtask5.getFormatter()));
+
+        assertThrows(ManagerSaveException.class, () -> taskManager.updateTask(task2));
+        assertThrows(ManagerSaveException.class, () -> taskManager.updateTask(subtask5));
     }
 
     @Test
@@ -164,7 +197,7 @@ public abstract class TaskManagerTest<T extends TaskManager> {
     @Test
     void clearTasks() {
         Task task = new Task("Задача 1", "Завести задачу 1", "16.03.2024|10:00", 15);
-        Task task1 = new Task("Задача 2", "Завести задачу 2", "16.03.2024|10:00", 15);
+        Task task1 = new Task("Задача 2", "Завести задачу 2", "16.03.2024|10:30", 15);
         taskManager.createTask(task);
         taskManager.createTask(task1);
 
@@ -174,7 +207,7 @@ public abstract class TaskManagerTest<T extends TaskManager> {
     }
 
     @Test
-    void removeTask(){
+    void removeTask() {
         Task task = new Task("Задача 1", "Завести задачу 1", "16.03.2024|10:00", 15);
         taskManager.createTask(task);
 
@@ -274,4 +307,37 @@ public abstract class TaskManagerTest<T extends TaskManager> {
         assertEquals(TaskStatus.IN_PROGRESS, epic1.getStatus(), "Статус эпика не IN_PROGRESS");
     }
 
+    @Test
+    public void prioritizedTasks() {
+        Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|10:00", 30);
+        Task task2 = new Task("Задача 2", "Завести задачу2", "16.03.2024|09:30", 15);
+        Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
+        taskManager.createTask(task1);
+        taskManager.createTask(task2);
+        taskManager.createEpic(epic3);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "16.03.2024|08:00", 15);
+        taskManager.createSubtasks(subtask5);
+
+        TreeSet<Task> prioritizedTasks = taskManager.getPrioritizedTasks();
+
+        assertEquals(subtask5, prioritizedTasks.first(), "Не верный приоритет первого элемента");
+        assertEquals(task1, prioritizedTasks.last(), "Не верный приоритет последнего элемента");
+    }
+
+    @Test
+    public void getEndTime() {
+        Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|10:00", 30);
+        Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
+        taskManager.createTask(task1);
+        taskManager.createEpic(epic3);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "16.03.2024|08:00", 15);
+        taskManager.createSubtasks(subtask5);
+        LocalDateTime taskEndTime = task1.getStartTime().plusMinutes(task1.getDuration().toMinutes());
+        LocalDateTime epicEndTime = epic3.getStartTime().plusMinutes(epic3.getDuration().toMinutes());
+        LocalDateTime subtaskEndTime = subtask5.getStartTime().plusMinutes(subtask5.getDuration().toMinutes());
+
+        assertEquals(taskEndTime, task1.getEndTime(), "EndTime таски рассчитан не верно");
+        assertEquals(epicEndTime, epic3.getEndTime(), "EndTime эпика рассчитан не верно");
+        assertEquals(subtaskEndTime, subtask5.getEndTime(), "EndTime сабтаски рассчитан не верно");
+    }
 }

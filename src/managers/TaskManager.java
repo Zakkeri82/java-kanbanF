@@ -5,7 +5,7 @@ import tasks.Subtask;
 import tasks.Task;
 
 import java.util.List;
-import java.util.Set;
+import java.util.TreeSet;
 
 public interface TaskManager {
 
@@ -47,8 +47,6 @@ public interface TaskManager {
 
     void updateSubtask(Subtask subtask);
 
-    Set<Task> getPrioritizedTasks();
-
-    boolean isIntersectsTasks(Task task);
+    TreeSet<Task> getPrioritizedTasks();
 }
 

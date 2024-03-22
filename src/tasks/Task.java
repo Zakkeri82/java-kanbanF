@@ -46,7 +46,7 @@ public class Task {
     }
 
     public Duration getDuration() {
-            return duration;
+        return duration;
     }
 
     public LocalDateTime getStartTime() {
@@ -88,7 +88,7 @@ public class Task {
     @Override
     public String toString() {
         return "Номер: " + id + ", имя: " + name + ", описание: " + description + ", статус: " + status +
-                ", дата начала: " + startTime + ", длительность: " + duration +  "\n";
+                ", дата начала: " + startTime + ", длительность: " + duration + "\n";
     }
 
     @Override

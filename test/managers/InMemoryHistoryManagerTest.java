@@ -6,7 +6,8 @@ import tasks.Epic;
 import tasks.Subtask;
 import tasks.Task;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class InMemoryHistoryManagerTest {
     private static TaskManager taskManager;

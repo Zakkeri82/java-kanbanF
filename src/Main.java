@@ -1,12 +1,13 @@
 import managers.Managers;
 import managers.TaskManager;
-import tasks.*;
+import tasks.Epic;
+import tasks.Subtask;
+import tasks.Task;
 
 public class Main {
 
-    public static void main(String[] args) {
-       TaskManager taskManager = Managers.getDefault();
-
+ public static void main(String[] args) {
+  TaskManager taskManager = Managers.getDefault();
 
         Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|09:00", 60);
         Task task2 = new Task("Задача 2", "Завести задачу2", "16.03.2024|09:30", 30);
