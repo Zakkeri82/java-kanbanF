@@ -94,3 +94,5 @@ V
 	tasks.csv,c\a\ca3f0cf937a9ff065df723d0aeced5355330a301
 \
 ,test/managers/FileBackedTaskManagerTest.java,6\0\60bfb74e197e3b93f9d559fec48a9a31c3186161
+R
+"test/managers/TaskManagerTest.java,d\8\d8a326f252287bc9b82feb6f613bf527a72216d7

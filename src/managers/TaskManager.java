@@ -5,6 +5,7 @@ import tasks.Subtask;
 import tasks.Task;
 
 import java.util.List;
+import java.util.TreeSet;
 
 public interface TaskManager {
 
@@ -16,7 +17,7 @@ public interface TaskManager {
 
     List<Task> getHistory();
 
-    int createTask(Task task);
+    void createTask(Task task);
 
     Task findTask(Task task);
 
@@ -26,7 +27,7 @@ public interface TaskManager {
 
     void updateTask(Task task);
 
-    int createEpic(Epic epic);
+    void createEpic(Epic epic);
 
     Epic findEpic(Epic epic);
 
@@ -36,7 +37,7 @@ public interface TaskManager {
 
     void updateEpic(Epic epic);
 
-    int createSubtasks(Subtask subtask);
+    void createSubtasks(Subtask subtask);
 
     Subtask findSubtask(Subtask subtask);
 
@@ -46,6 +47,6 @@ public interface TaskManager {
 
     void updateSubtask(Subtask subtask);
 
-
+    TreeSet<Task> getPrioritizedTasks();
 }
 
