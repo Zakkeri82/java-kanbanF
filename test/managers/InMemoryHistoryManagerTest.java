@@ -18,11 +18,11 @@ class InMemoryHistoryManagerTest {
 
     @Test
     public void addHistoryAllTypeTask() {
-        Task task = new Task("Задача 1", "Завести задачу 1", "17.03.2024|10:00", 15);
+        Task task = new Task("Задача 1", "Завести задачу 1", "2024-03-17T10:00", 15);
         Epic epic = new Epic("Эпик 1", "Завести эпик 1");
         taskManager.createTask(task);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2, "16.03.2024|10:00", 15);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2, "2024-03-16T10:00", 15);
         taskManager.createSubtasks(subtask);
 
         taskManager.findTask(task);
@@ -52,13 +52,13 @@ class InMemoryHistoryManagerTest {
 
     @Test
     public void whenTaskRemoveThenRemoveTaskFromTheHistory () {
-        Task task = new Task("Задача 1", "Завести задачу 1","17.03.2024|10:00", 15);
-        Task task1 = new Task("Задача 2", "Завести задачу 2", "17.03.2024|11:00", 15);
+        Task task = new Task("Задача 1", "Завести задачу 1","2024-03-17T10:00", 15);
+        Task task1 = new Task("Задача 2", "Завести задачу 2", "2024-03-17T11:00", 15);
         Epic epic = new Epic("Эпик 1", "Завести эпик 1");
         taskManager.createTask(task);
         taskManager.createTask(task1);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic.getId(), "16.03.2024|10:00", 15);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", epic.getId(), "2024-03-16T10:00", 15);
         taskManager.createSubtasks(subtask);
         taskManager.findTask(task);
         taskManager.findEpic(epic);
@@ -77,11 +77,11 @@ class InMemoryHistoryManagerTest {
 
     @Test
     void shouldAddNewTaskToTheTail() {
-        Task task = new Task("Задача 1", "Завести задачу 1", "17.03.2024|10:00", 15);
+        Task task = new Task("Задача 1", "Завести задачу 1", "2024-03-16T10:00", 15);
         Epic epic = new Epic("Эпик 1", "Завести эпик 1");
         taskManager.createTask(task);
         taskManager.createEpic(epic);
-        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2, "16.03.2024|10:00", 15);
+        Subtask subtask = new Subtask("Подзадача1", "Для эпика 1", 2, "2024-03-17T10:00", 15);
         taskManager.createSubtasks(subtask);
 
         taskManager.findTask(task);

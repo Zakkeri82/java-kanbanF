@@ -66,14 +66,30 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
+    public Task getTaskById(int id) {
+        return tasks.get(id);
+    }
+
+    @Override
+    public Epic getEpicById(int id) {
+        return epics.get(id);
+    }
+
+    @Override
+    public Subtask getSubtaskById(int id) {
+        return subtasks.get(id);
+    }
+
+    @Override
     public void createTask(Task task) {
         if (isIntersectsTasks(task)) {
-            throw new ManagerSaveException("Задача не создана, т.к. пересекается с другой задачей");
+           throw new ManagerSaveException("Задача не создана, т.к. пересекается с другой задачей");
         }
             task.setId(++id);
             tasks.put(task.getId(), task);
             prioritizedTasks.add(task);
     }
+
 
     @Override
     public Task findTask(Task task) {
@@ -83,6 +99,7 @@ public class InMemoryTaskManager implements TaskManager {
         }
         return findTask;
     }
+
 
     @Override
     public void clearTasks() {

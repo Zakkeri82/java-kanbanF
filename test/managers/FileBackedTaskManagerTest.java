@@ -24,7 +24,7 @@ class FileBackedTaskManagerTest extends TaskManagerTest<FileBackedTaskManager> {
         taskManager.file = new File("invalid", "tasks.csv");
         taskManager = new FileBackedTaskManager(taskManager.file);
         assertThrows(ManagerSaveException.class, () -> {
-            Task task = new Task("Задача 1", "Завести задачу1", "16.03.2024|09:00", 60);
+            Task task = new Task("Задача 1", "Завести задачу1", "2024-03-16T09:00", 60);
             taskManager.createTask(task);
         });
     }
@@ -32,11 +32,11 @@ class FileBackedTaskManagerTest extends TaskManagerTest<FileBackedTaskManager> {
     @Test
     public void loadFromFile() throws Exception {
         File file = File.createTempFile("test", "csv");
-        Task task1 = new Task("Задача 1", "Завести задачу1", "16.03.2024|09:00", 60);
+        Task task1 = new Task("Задача 1", "Завести задачу1", "2024-03-16T09:00", 60);
         Epic epic3 = new Epic("Эпик 1", "Завести эпик1");
         taskManager.createTask(task1);
         taskManager.createEpic(epic3);
-        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "16.03.2024|10:00", 15);
+        Subtask subtask5 = new Subtask("Подзадача1", "Для эпика 1", epic3.getId(), "2024-03-16T10:00", 15);
         taskManager.createSubtasks(subtask5);
         taskManager.findEpic(epic3);
         taskManager.findTask(task1);

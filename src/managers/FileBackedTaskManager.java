@@ -40,7 +40,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         }
     }
 
-    static FileBackedTaskManager loadFromFile(File file) {
+   public static FileBackedTaskManager loadFromFile(File file) {
         FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager(file);
         CSVTaskFormatter taskFormatter1 = new CSVTaskFormatter();
         try (Reader fileReader = new FileReader(file); BufferedReader bufferedReader = new BufferedReader(fileReader)) {

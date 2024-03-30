@@ -26,7 +26,7 @@ public class CSVTaskFormatter {
             dataTask[3] = task.getStatus().getUrl();
             dataTask[4] = task.getDescription();
             if (task.getStartTime() != null) {
-                dataTask[5] = String.valueOf(task.getStartTime().format(task.getFormatter()));
+                dataTask[5] = String.valueOf(task.getStartTime());
             } else {
                 dataTask[5] = null;
             }
@@ -45,7 +45,7 @@ public class CSVTaskFormatter {
             dataTask[3] = task.getStatus().getUrl();
             dataTask[4] = task.getDescription();
             if (task.getStartTime() != null) {
-                dataTask[5] = String.valueOf(task.getStartTime().format(task.getFormatter()));
+                dataTask[5] = String.valueOf(task.getStartTime());
             } else {
                 dataTask[5] = null;
             }
@@ -73,7 +73,7 @@ public class CSVTaskFormatter {
             if (dataTask[5].equals("null")) {
                 task.setStartTime(null);
             } else {
-                task.setStartTime(LocalDateTime.parse(dataTask[5], task.getFormatter()));
+                task.setStartTime(LocalDateTime.parse(dataTask[5]));
             }
             if (dataTask[6].equals("null")) {
                 task.setDuration(null);
